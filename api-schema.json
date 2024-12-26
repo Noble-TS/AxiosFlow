@@ -1,0 +1,48 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "endpoints": {
+    "/users": {
+      "GET": {
+        "method": "GET",
+        "path": "/users",
+        "response": {
+          "name": "User",
+          "properties": {
+            "id": "number",
+            "name": "string"
+          }
+        }
+      },
+      "POST": {
+        "method": "POST",
+        "path": "/users",
+        "request": {
+          "name": "UserRequest",
+          "properties": {
+            "name": "string"
+          }
+        },
+        "response": {
+          "name": "User",
+          "properties": {
+            "id": "number",
+            "name": "string"
+          }
+        }
+      }
+    },
+    "/users/:id": {
+      "GET": {
+        "method": "GET",
+        "path": "/users/:id",
+        "response": {
+          "name": "User",
+          "properties": {
+            "id": "number",
+            "name": "string"
+          }
+        }
+      }
+    }
+  }
+}
