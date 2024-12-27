@@ -2,7 +2,56 @@
   "name": "axiosflow",
   "version": "0.1.0",
   "private": true,
+  "description": "AxiosFlow is a powerful TypeScript library that simplifies API consumption. It uses decorators and reflection to automatically generate type-safe API clients and types for your backend APIs, reducing boilerplate code and enhancing development efficiency.",
+  "keywords": [
+    "typescript",
+    "api",
+    "api-client",
+    "api-client-generator",
+    "type-safe",
+    "decorators",
+    "reflection",
+    "axios",
+    "axios-client",
+    "axios-helper",
+    "react",
+    "express",
+    "angular"
+  ],
+  "homepage": "https://github.com/Noble-TS/AxiosFlow#readme",
+  "bugs": {
+    "url": "https://github.com/Noble-TS/AxiosFlow/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noble-TS/AxiosFlow.git"
+  },
+  "license": "MIT",
+  "author": "Noble-Ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./cli": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "axiosflow": "dist/index.js"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "cli": "node --loader ts-node/esm src/index.ts",
+    "generate": "node ./dist/index.js generate"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@types/reflect-metadata": "^0.1.0",
@@ -18,36 +67,6 @@
     "react-scripts": "5.0.1",
     "reflect-metadata": "^0.2.2",
     "web-vitals": "^4.2.4"
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "bin": {
-    "axiosflow": "./dist/index.js"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "prepublishOnly": "npm run build",
-    "cli": "node --loader ts-node/esm src/index.ts",
-    "generate": "node ./dist/index.js generate"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
@@ -75,24 +94,31 @@
     "tsx": "^4.19.2",
     "typescript": "^4.9.5"
   },
+  "module": "./dist/index.js",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!axios)/"
     ],
     "transform": {
       "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
-    }
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./cli": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
     }
   }
 }

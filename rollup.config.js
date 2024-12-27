@@ -1,4 +1,5 @@
-// rollup.config.js
+#!/usr/bin/env node
+
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -23,6 +24,7 @@ export default defineConfig({
   output: [
     {
       dir: 'dist',
+       banner: '#!/usr/bin/env node',
       format: 'esm',
       sourcemap: true,
       entryFileNames: '[name].js',
