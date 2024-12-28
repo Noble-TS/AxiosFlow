@@ -1,39 +1,45 @@
+#!/usr/bin/env node
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json'; // Add json plugin
 import { defineConfig } from 'rollup';
-import terser from '@rollup/plugin-terser';
+import fs from 'fs';
+import path from 'path';
 
+// Dynamic package.json loading
+const getPackageJson = () => {
+  try {
+    const packagePath = path.resolve(process.cwd(), 'package.json');
+    return JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+  } catch (error) {
+    console.error('Failed to load package.json:', error);
+    return { version: '0.0.0', name: 'axiosflow' };
+  }
+};
 
 export default defineConfig({
-  input: 'src/index.ts', 
+  input: 'src/cli/index.ts', 
   output: [
     {
       dir: 'dist',
-      banner: '#!/usr/bin/env node',
-      format: 'cjs',  // CommonJS
+       banner: '#!/usr/bin/env node',
+      format: 'esm',
       sourcemap: true,
-      entryFileNames: 'index.cjs', // Output file name
-      chunkFileNames: '[name]-[hash].js'
-    },
-    {
-      dir: 'dist',
-      format: 'es',  // ES Module output
-      sourcemap: true,
-      entryFileNames: 'index.js', // Output file name for ES Module
-      chunkFileNames: '[name]-[hash].js'
-    },
+      entryFileNames: 'cli.js',
+      chunkFileNames: 'cli-[hash].js'
+    }
   ],
   plugins: [
     json({
       preferConst: true,
       compact: false,
       namedExports: true
-    }), 
+    }), // Add json plugin here
     resolve({
       extensions: ['.ts', '.js', '.json'],
-      preferBuiltins: true
+      preferBuiltins:true
     }),
     commonjs(),
     typescript({
@@ -54,7 +60,6 @@ export default defineConfig({
       }
     })
   ],
-  
   external: [
     'commander',
     'axios',
