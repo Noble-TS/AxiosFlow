@@ -57,6 +57,7 @@
     "@types/reflect-metadata": "^0.1.0",
     "axios": "^1.7.9",
     "axios-mock-adapter": "^1.19.0",
+    "axiosflow": "^0.1.0",
     "commander": "^9.2.0",
     "cra-template-typescript": "1.2.0",
     "dotenv": "^16.4.7",
