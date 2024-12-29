@@ -12,7 +12,8 @@ dist/
 
 # Production
 /build/
-
+src/__tests__/
+src/services/
 # Miscellaneous files
 .DS_Store
 .env.local
