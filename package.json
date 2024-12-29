@@ -1,6 +1,6 @@
 {
   "name": "axiosflow",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "description": "AxiosFlow is a powerful TypeScript library that simplifies API consumption. It uses decorators and reflection to automatically generate type-safe API clients and types for your backend APIs, reducing boilerplate code and enhancing development efficiency.",
   "keywords": [
@@ -30,24 +30,20 @@
   "author": "Noble-Ts",
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
-    },
+   
     "./cli": {
       "import": "./dist/cli.js",
       "require": "./dist/cli.cjs",
-      "types": "./dist/cli/index.d.ts"
+      "types": "./dist/src/cli/index.d.ts"
     }
   },
-  "main": "./dist/index.cjs",
-  "types": "./dist/src/index.d.ts",
+  "main": "./dist/cli.cjs",
+  "types": "./dist/src/cliindex.d.ts",
   "bin": {
     "axiosflow": "dist/cli.js"
   },
   "scripts": {
-    "build": "rollup -c && rollup -c rollup.config.cli.js --bundleConfigAsCjs",
+    "build": "tsc",
     "prepublishOnly": "npm run build",
     "cli": "node --loader ts-node/esm src/cli/index.ts",
     "generate": "node ./dist/cli.cjs generate"
