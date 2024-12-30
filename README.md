@@ -62,7 +62,7 @@ npm install -D typescript @types/express @types/cors ts-node
 
 ### 1. Create Controller (userController.ts)
 
-```
+```typescript
 import { Request, Response } from 'express';
 
 // Interfaces for type safety
@@ -130,7 +130,7 @@ export class UserController {
 ```
 ### 2. Create User Routes (userRoutes.ts)
 
-```
+```typescript
 import { registerRoute, typeRef } from 'axiosflow-api';
 import { UserController, UserRequest, User } from '../controllers/userController';
 
@@ -177,7 +177,7 @@ export const controllerInstances = {
 ```
 ### 3. Create Router (router.ts)
 
-```
+```typescript
 import { Router } from 'express';
 import { createRoutes } from 'axiosflow-api';
 import { registerUserRoutes, controllerInstances } from './userRoutes';
@@ -194,7 +194,7 @@ export default router;
 ```
 ### 4. Create Server (server.ts)
 
-```
+```typescript
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -234,7 +234,7 @@ app.listen(PORT, () => {
 ```
 ### Advanced Configuration: Middleware and Interceptors
 
-```
+```typescript
 import { Request, Response, NextFunction } from 'express';
 import { registerRoute, typeRef } from 'axiosflow-api';
 
@@ -292,17 +292,16 @@ TypeScript
 Axios
 
 #### Global installation  via npm 
-
-``` npm install -g axiosflow
 ```
-
+npm install -g axiosflow
+```
 #### Verify Installation
-```
+```t
 axiosflow --help 
 ```
 #### Generate API Functions
 
-```
+```t
 # Basic generation
 axiosflow generate
 
@@ -311,7 +310,7 @@ axiosflow generate -b http://localhost:3000 -o ./src/services
 ```
 ### 3. Generated Files Structure in project structure
 
-```
+```t
 src/services/
 ├── apiFunctions.ts     # Generated API functions
 ├── apiConfig.ts        # API endpoint configurations
@@ -321,7 +320,7 @@ src/services/
 ## Usage in React/TypeScript Project
 ### Fetch Users
 
-```
+```typescript
 import { get_users } from './services/apiFunctions';
 
 async function UserList() {
@@ -335,7 +334,7 @@ async function UserList() {
 ```
 ### Create User
 
-```
+```typescript
 import { post_users } from './services/apiFunctions';
 
 async function createUser(name: string) {
@@ -348,3 +347,57 @@ async function createUser(name: string) {
 }
 
 ```
+or in components :
+
+```typescript
+import React, { useEffect, useState } from 'react';
+import { get_users, post_users, get_users_id } from '../services/apiFunctions';
+import { User, UserRequest } from '../services/types';
+
+const UserComponent: React.FC = () => {
+    const [users, setUsers] = useState<User[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+    
+
+    // Fetch the list of users from the API on component mount 
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+
+                console.log('Attempting to fetch users...');
+                const userList = await get_users();
+                
+                console.log('Fetched Users:', userList);
+                
+                if (userList.length > 0) {
+                    setUsers(userList);
+                } else {
+                    setError('No users found');
+                }
+            } catch (err) {
+                console.error('Fetch Users Error:', err);
+                
+                const errorMessage = err instanceof Error 
+                    ? err.message 
+                    : 'An unexpected error occurred';
+                
+                setError(errorMessage);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchUsers();
+    }, []);
+return (
+    <div> 
+    <h1>Users Lists</h1>
+    </div>
+);
+
+};
+```
+Check the `examples` folder for implementation samples on both the client and server sides

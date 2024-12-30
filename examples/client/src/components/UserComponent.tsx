@@ -12,7 +12,7 @@ const UserComponent: React.FC = () => {
     const [addingUser, setAddingUser] = useState<boolean>(false);
     const [fetchingUser, setFetchingUser] = useState<boolean>(false);
 
-    // Fetch users on component mount
+    // Fetch the list of users from the API on component mount 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -45,7 +45,7 @@ const UserComponent: React.FC = () => {
         fetchUsers();
     }, []);
 
-    // Handle adding a new user
+    // Handle adding a new user to the API and updating the list of users on success 
     const handleAddUser = async (e: React.FormEvent) => {
         e.preventDefault();
         
@@ -60,7 +60,7 @@ const UserComponent: React.FC = () => {
         const newUser: UserRequest = { name: newUserName.trim() };
         try {
             const createdUser = await post_users(newUser);
-            // Add the new user to the list
+            // Add the new user to the list of users and reset the input field value 
             setUsers(prevUsers => [...prevUsers, createdUser]);
             setNewUserName('');
         } catch (err) {
@@ -71,7 +71,7 @@ const UserComponent: React.FC = () => {
         }
     };
 
-    // Handle fetching a user by ID
+    // Handle fetching a user by ID from the API
     const handleFetchUserById = async (e: React.FormEvent) => {
         e.preventDefault();
         
