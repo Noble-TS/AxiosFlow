@@ -12,3 +12,16 @@ pagination, caching, and more.
 *   **Intelligent Type Inference**: Automatically extracts request and response types,supports complex type structures and nested objects, and works seamlessly with TypeScript's type system
 
 
+
+
+AxiosFlow API
+Introduction
+AxiosFlow API is an TypeScript library, which has the potential to completely change the way we do backend API development. With intelligent routing, type-safe implementations, and automatic schema generation, it takes care of most of the complicated things while you build your robust web APIs.
+
+Main Benefits
+Type-Safe Routing: Compile-time type checking for API endpoints
+Dynamic Route Generation: Automatically create routes with minimal configuration
+Intelligent Schema Export: Generate type-safe API schemas for frontend consumption
+Seamless Express Integration: Works perfectly with Express.js
+Decorator-Based API Definition: Clean, intuitive API method declarations
+Installation

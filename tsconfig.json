@@ -10,17 +10,19 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "rootDir": "./",
+    "rootDir": "./src",
     "declaration": true,
     "sourceMap": true,
     "lib": ["ES2020", "DOM"]
   },
   "include": [
     "src/**/*",
-    "package.json"
+   
   ],
   "exclude": [
     "node_modules", 
-    "dist"
+    "dist",
+     "package.json",
+     "src/__tests__",
   ]
 }
