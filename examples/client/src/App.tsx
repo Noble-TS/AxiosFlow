@@ -4,7 +4,7 @@ import UserComponent from './components/UserComponent';
 function App() {
   return (
     <div className="App">
-      <h1>User Management App</h1>
+      <h1>AxosFlow Examples</h1>
       <UserComponent />
     </div>
   );
