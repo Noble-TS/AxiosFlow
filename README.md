@@ -2,29 +2,39 @@
 ## Revolutionizing Frontend API Interaction
 AxiosFlow is a powerful TypeScript library that automatically generates type-safe API functions, providing a seamless and intuitive way to interact with your backend services.
 
-### Key Features
-*   **Type Safety**: AxiosFlow ensures that API calls are type-safe, reducing errors and improving
-code quality.
-*   **Automatic Type Generation**: Automatically generates fully typed API client functions,eliminates manual type definitions and reduces boilerplate code ,and ensures compile-time type safety for API interactions
-*   **Type-Safe API Calls**: Provides end-to-end type inference from backend to frontend, catches potential type mismatches during development, and enhances code reliability and reduces runtime errors
-*   **Extensive Support**: AxiosFlow supports a wide range of features, including
-pagination, caching, and more.
-*   **Decorator-Based API Definition**: Use simple decorators to define API endpoints, intuitive, clean syntax for API method declarations, and minimal configuration required
-*   **Intelligent Type Inference**: Automatically extracts request and response types,supports complex type structures and nested objects, and works seamlessly with TypeScript's type system
+## Key Features
+### Comprehensive Type Safety
+#### - Robust Error Prevention: Ensures type-safe API calls
+#### - Compile-Time Validation: Catches type mismatches before runtime
+#### - Enhanced Code Quality: Reduces potential errors in API interactions
+### Intelligent Type Generation
+#### - Automatic Function Creation:
+#### - Generates fully typed API client functions
+#### - Eliminates manual type definitions
+#### - Dramatically reduces boilerplate code
+#### - Compile-Time Type Safety:
+#### - Guarantees type consistency across API interactions
+#### - Provides comprehensive type inference
+### End-to-End Type Inference
+#### - Backend to Frontend Type Mapping:
+#### - Seamless type propagation
+#### - Catches potential type mismatches during development
+### Code Reliability:
+#### - Enhances type consistency
+### - Minimizes runtime type-related errors
+## Core Capabilities
+#### - Automatic API function generation
+#### - Type-safe API interactions
+#### - Dynamic URL parameter support
+#### - Minimal configuration required
 
-Automatic API function generation
-Type-safe API interactions
-Dynamic URL parameter support
-Minimal configuration required
-Works with any axiosflow-api backend API
 
 
-
-AxiosFlow API
+# AxiosFlow API
 
 AxiosFlow API is an TypeScript library, which has the potential to completely change the way we do backend API development. With intelligent routing, type-safe implementations, and automatic schema generation, it takes care of most of the complicated things while you build your robust web APIs.
 
-Main Benefits
+## Main Benefits
 
 Type-Safe Routing: Compile-time type checking for API endpoints
 Dynamic Route Generation: Automatically create routes with minimal configuration
@@ -32,21 +42,25 @@ Intelligent Schema Export: Generate type-safe API schemas for frontend consumpti
 Seamless Express Integration: Works perfectly with Express.js
 Decorator-Based API Definition: Clean, intuitive API method declarations
 
-Configuration
+## Configuration
 
-Backend setup
+### Backend setup
 
-Installation
+#### Installation
 
-# Install core dependencies
+#### Install core dependencies
+```
 npm install express cors dotenv axiosflow-api
+```
 
-# Install TypeScript and types
+#### Install TypeScript and types
+```
 npm install -D typescript @types/express @types/cors ts-node
+```
 
-Step-by-Step Setup
+## Step-by-Step Setup
 
-1. Create Controller (userController.ts)
+### 1. Create Controller (userController.ts)
 
 ```
 import { Request, Response } from 'express';
@@ -114,7 +128,7 @@ export class UserController {
   }
 } 
 ```
-2. Create User Routes (userRoutes.ts)
+### 2. Create User Routes (userRoutes.ts)
 
 ```
 import { registerRoute, typeRef } from 'axiosflow-api';
@@ -161,7 +175,7 @@ export const controllerInstances = {
   UserController: userController,
 };
 ```
-3. Create Router (router.ts)
+### 3. Create Router (router.ts)
 
 ```
 import { Router } from 'express';
@@ -178,7 +192,7 @@ createRoutes(router, controllerInstances);
 
 export default router;
 ```
-4. Create Server (server.ts)
+### 4. Create Server (server.ts)
 
 ```
 import express from 'express';
@@ -218,7 +232,7 @@ app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 ```
-Advanced Configuration: Middleware and Interceptors
+### Advanced Configuration: Middleware and Interceptors
 
 ```
 import { Request, Response, NextFunction } from 'express';
@@ -269,24 +283,24 @@ export function registerUserRoutes() {
   
 
 ```
-Client Setup 
+## Client Setup 
 
-Prerequisites
+### Prerequisites
 
 Node.js (v16+)
 TypeScript
 Axios
 
-Global installation  via npm 
+#### Global installation  via npm 
 
 ``` npm install -g axiosflow
 ```
 
-Verify Installation
+#### Verify Installation
 ```
 axiosflow --help 
 ```
-Generate API Functions
+#### Generate API Functions
 
 ```
 # Basic generation
@@ -295,7 +309,7 @@ axiosflow generate
 # With specific options
 axiosflow generate -b http://localhost:3000 -o ./src/services
 ```
-3. Generated Files Structure in project structure
+### 3. Generated Files Structure in project structure
 
 ```
 src/services/
@@ -304,8 +318,8 @@ src/services/
 ├── types.ts            # Type definitions
 └── api-schema.json     # API schema documentation
 ```
-Usage in React/TypeScript Project
-Fetch Users
+## Usage in React/TypeScript Project
+### Fetch Users
 
 ```
 import { get_users } from './services/apiFunctions';
@@ -319,7 +333,7 @@ async function UserList() {
   }
 }
 ```
-Create User
+### Create User
 
 ```
 import { post_users } from './services/apiFunctions';
