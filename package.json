@@ -30,23 +30,33 @@
   "author": "Noble-Ts",
   "type": "module",
   "exports": {
-    "./cli": {
-      "import": "./dist/cli.js",
-      "require": "./dist/cli.cjs",
-      "types": "./dist/src/cli/index.d.ts"
+    ".": {
+      "import": {
+        "types": "./dist/cli/index.d.ts",
+        "default": "./dist/cli/index.js"
+      },
+      "require": {
+        "types": "./dist/cli/index.d.ts",
+        "default": "./dist/cli/index.js"
+      }
     }
   },
-  "main": "./dist/cli.cjs",
-  "types": "./dist/src/cliindex.d.ts",
+  "main": "./dist/cli/index.js",
+  "types": "./dist/cli/index.d.ts",
   "bin": {
-    "axiosflow": "dist/cli.js"
+    "axiosflow": "./dist/cli/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
     "prepublishOnly": "npm run build",
     "cli": "node --loader ts-node/esm src/cli/index.ts",
-    "generate": "node ./dist/cli.cjs generate"
+    "generate": "node ./dist/cli/index.js generate",
+    "postinstall": "chmod +x dist/cli/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@types/reflect-metadata": "^0.1.0",
     "axios": "^1.7.9",
