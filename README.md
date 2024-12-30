@@ -4,29 +4,29 @@ AxiosFlow is a powerful TypeScript library that automatically generates type-saf
 
 ## Key Features
 ### Comprehensive Type Safety
-#### - Robust Error Prevention: Ensures type-safe API calls
-#### - Compile-Time Validation: Catches type mismatches before runtime
-#### - Enhanced Code Quality: Reduces potential errors in API interactions
+ - Robust Error Prevention: Ensures type-safe API calls
+ - Compile-Time Validation: Catches type mismatches before runtime
+ - Enhanced Code Quality: Reduces potential errors in API interactions
 ### Intelligent Type Generation
-#### - Automatic Function Creation:
-#### - Generates fully typed API client functions
-#### - Eliminates manual type definitions
-#### - Dramatically reduces boilerplate code
-#### - Compile-Time Type Safety:
-#### - Guarantees type consistency across API interactions
-#### - Provides comprehensive type inference
+ - Automatic Function Creation:
+ - Generates fully typed API client functions
+ - Eliminates manual type definitions
+ - Dramatically reduces boilerplate code
+ - Compile-Time Type Safety:
+ - Guarantees type consistency across API interactions
+ - Provides comprehensive type inference
 ### End-to-End Type Inference
-#### - Backend to Frontend Type Mapping:
-#### - Seamless type propagation
-#### - Catches potential type mismatches during development
+ - Backend to Frontend Type Mapping:
+ - Seamless type propagation
+ - Catches potential type mismatches during development
 ### Code Reliability:
-#### - Enhances type consistency
-### - Minimizes runtime type-related errors
+ - Enhances type consistency
+ - Minimizes runtime type-related errors
 ## Core Capabilities
-#### - Automatic API function generation
-#### - Type-safe API interactions
-#### - Dynamic URL parameter support
-#### - Minimal configuration required
+ - Automatic API function generation
+ - Type-safe API interactions
+ - Dynamic URL parameter support
+ - Minimal configuration required
 
 
 
@@ -36,11 +36,11 @@ AxiosFlow API is an TypeScript library, which has the potential to completely ch
 
 ## Main Benefits
 
-Type-Safe Routing: Compile-time type checking for API endpoints
-Dynamic Route Generation: Automatically create routes with minimal configuration
-Intelligent Schema Export: Generate type-safe API schemas for frontend consumption
-Seamless Express Integration: Works perfectly with Express.js
-Decorator-Based API Definition: Clean, intuitive API method declarations
+- Type-Safe Routing: Compile-time type checking for API endpoints
+- Dynamic Route Generation: Automatically create routes with minimal configuration
+- Intelligent Schema Export: Generate type-safe API schemas for frontend consumption
+- Seamless Express Integration: Works perfectly with Express.js
+- Decorator-Based API Definition: Clean, intuitive API method declarations
 
 ## Configuration
 
