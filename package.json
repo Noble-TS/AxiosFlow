@@ -1,6 +1,6 @@
 {
   "name": "axiosflow",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "private": false,
   "description": "AxiosFlow is a powerful TypeScript library that simplifies API consumption. It uses decorators and reflection to automatically generate type-safe API clients and types for your backend APIs, reducing boilerplate code and enhancing development efficiency.",
   "keywords": [
