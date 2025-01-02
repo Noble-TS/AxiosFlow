@@ -259,7 +259,7 @@ export function registerUserRoutes() {
     '/users', 
     null, 
     typeRef<User>('User', { id: 'number', name: 'string' }), 
-    [logger], 
+    [csrfProtection,logger], 
     'getUsers'
   );
   
@@ -270,7 +270,7 @@ export function registerUserRoutes() {
     '/users/:id', 
     null, 
     typeRef<User>('User', { id: 'number', name: 'string' }), 
-    [csrfProtection, kogger], 
+    [csrfProtection, logger], 
     'getUserById'
   );
   
