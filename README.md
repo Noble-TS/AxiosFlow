@@ -238,24 +238,17 @@ app.listen(PORT, () => {
 import { Request, Response, NextFunction } from 'express';
 import { registerRoute, typeRef } from 'axiosflow-api';
 
-// Logging Middleware
-export const loggingMiddleware = (req: Request, res: Response, next: NextFunction) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+
+//  CSRF middleware
+const csrfProtection: RequestHandler = (req, res, next) => {
+  csrf({ cookie: true });
   next();
 };
 
-// Validation Middleware
-export const validateUserName = (req: Request, res: Response, next: NextFunction) => {
-  const { name } = req.body;
-  
-  if (!name || name.length < 2) {
-    return res.status(400).json({
-      status: 'error',
-      message: 'Name must be at least 2 characters long'
-    });
-  }
-  
-  next();
+// logger middleware
+const logger: RequestHandler = (req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+    next();
 };
 
 export function registerUserRoutes() {
@@ -266,7 +259,7 @@ export function registerUserRoutes() {
     '/users', 
     null, 
     typeRef<User>('User', { id: 'number', name: 'string' }), 
-    [loggingMiddleware], 
+    [logger], 
     'getUsers'
   );
   
@@ -277,11 +270,11 @@ export function registerUserRoutes() {
     '/users/:id', 
     null, 
     typeRef<User>('User', { id: 'number', name: 'string' }), 
-    [validateUserName, loggingMiddleware], 
+    [csrfProtection, kogger], 
     'getUserById'
   );
   
-
+}
 ```
 ## Client Setup 
 
