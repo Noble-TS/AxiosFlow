@@ -17,7 +17,7 @@
     "@types/express": "^4.17.21",
     "@types/reflect-metadata": "^0.0.5",
     "axiosflow": "^0.1.5",
-    "axiosflow-api": "^1.0.1",
+    "axiosflow-api": "^1.0.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "csurf": "^1.10.0",

@@ -50,7 +50,7 @@ AxiosFlow API is an TypeScript library, which has the potential to completely ch
 
 #### Install core dependencies
 ```
-npm install express cors dotenv axiosflow-api
+npm install express@4.21.2  cors dotenv axiosflow-api
 ```
 
 #### Install TypeScript and types
