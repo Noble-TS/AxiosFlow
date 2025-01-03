@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/npm/l/axiosflow)](https://www.npmjs.com/package/axiosflow)
 [![GitHub Issues](https://img.shields.io/github/issues/Noble-TS/AxiosFlow)](https://github.com/Noble-TS/AxiosFlow/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/Noble-TS/AxiosFlow)](https://github.com/Noble-TS/AxiosFlow/stargazers)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/Noble-TS/AxiosFlow/ci.yml)](https://github.com/Noble-TS/AxiosFlow/actions)
+<!-- [![Build Status](https://img.shields.io/github/actions/workflow/status/Noble-TS/AxiosFlow/ci.yml)](https://github.com/Noble-TS/AxiosFlow/actions) -->
 
 **Automatically Generate Type-Safe API Functions for Your RESTful APIs**
 
@@ -60,6 +60,13 @@ AxiosFlow is the **simplest and most flexible solution** for adding type safety 
 
 ---
 
+<!-- ## Watch the Demo
+
+Check out this video to see AxiosFlow in action:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8N9-EItuhlo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+---
 ## Quick Start
 
 ## Examples
