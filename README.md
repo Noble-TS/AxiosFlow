@@ -1,5 +1,12 @@
 # AxiosFlow
 
+[![Weekly Downloads](https://img.shields.io/npm/dw/axiosflow?label=Downloads&color=blue)](https://www.npmjs.com/package/axiosflow)
+[![Version](https://img.shields.io/npm/v/axiosflow)](https://www.npmjs.com/package/axiosflow)
+[![License](https://img.shields.io/npm/l/axiosflow)](https://www.npmjs.com/package/axiosflow)
+[![GitHub Issues](https://img.shields.io/github/issues/Noble-TS/AxiosFlow)](https://github.com/Noble-TS/AxiosFlow/issues)
+[![GitHub Stars](https://img.shields.io/github/stars/Noble-TS/AxiosFlow)](https://github.com/Noble-TS/AxiosFlow/stargazers)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Noble-TS/AxiosFlow/ci.yml)](https://github.com/Noble-TS/AxiosFlow/actions)
+
 **Automatically Generate Type-Safe API Functions for Your RESTful APIs**
 
 AxiosFlow is a powerful TypeScript library that simplifies API consumption by automatically generating type-safe API functions for your RESTful APIs. It eliminates boilerplate code, ensures compile-time type safety, and works seamlessly with Express.js and Axios.
