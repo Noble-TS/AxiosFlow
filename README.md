@@ -64,17 +64,18 @@ AxiosFlow is the **simplest and most flexible solution** for adding type safety 
 
 ## Examples
 
-Check out the [`examples`](./examples) folder for complete implementation samples:
+Explore the examples to see AxiosFlow in action:
+
+### CodeSandbox
+Check out the live examples on CodeSandbox:
+
+[![Client and Server Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/Noble-TS/examples)
+
+### Repository
+You can also explore the code in the [`examples`](./examples) folder:
 
 - **[Client](./examples/client)**: A React/TypeScript frontend using AxiosFlow.
 - **[Server](./examples/server)**: An Express.js backend with AxiosFlow integration.
-
-## CodeSandbox
-
-Check out the live examples on CodeSandbox to see AxiosFlow in action:
-
-[![Client and Server Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/Noble-TS/examples)  
-
 
 ### Backend setup
 
