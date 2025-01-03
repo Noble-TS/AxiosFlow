@@ -1,48 +1,73 @@
 # AxiosFlow
-## Revolutionizing Frontend API Interaction
-AxiosFlow is a powerful TypeScript library that automatically generates type-safe API functions, providing a seamless and intuitive way to interact with your backend services.
+
+**Automatically Generate Type-Safe API Functions for Your RESTful APIs**
+
+AxiosFlow is a powerful TypeScript library that simplifies API consumption by automatically generating type-safe API functions for your RESTful APIs. It eliminates boilerplate code, ensures compile-time type safety, and works seamlessly with Express.js and Axios.
+
+---
+
+## Why AxiosFlow?
+
+Building type-safe APIs can be time-consuming and error-prone. AxiosFlow solves this by:
+
+- **Automating API Function Generation**: No more writing repetitive API call functions.
+- **Ensuring Compile-Time Type Safety**: Catch errors before runtime with TypeScript.
+- **Reducing Boilerplate Code**: Focus on building features, not writing API glue code.
+- **Seamless Integration**: Works with your existing Express.js backend and Axios client.
+
+---
 
 ## Key Features
+
 ### Comprehensive Type Safety
- - Robust Error Prevention: Ensures type-safe API calls
- - Compile-Time Validation: Catches type mismatches before runtime
- - Enhanced Code Quality: Reduces potential errors in API interactions
+- **Robust Error Prevention**: Ensures type-safe API calls.
+- **Compile-Time Validation**: Catches type mismatches before runtime.
+- **Enhanced Code Quality**: Reduces potential errors in API interactions.
+
 ### Intelligent Type Generation
- - Automatic Function Creation:
- - Generates fully typed API client functions
- - Eliminates manual type definitions
- - Dramatically reduces boilerplate code
- - Compile-Time Type Safety:
- - Guarantees type consistency across API interactions
- - Provides comprehensive type inference
+- **Automatic Function Creation**: Generates fully typed API client functions.
+- **Eliminates Manual Type Definitions**: Dramatically reduces boilerplate code.
+- **Compile-Time Type Safety**: Guarantees type consistency across API interactions.
+
 ### End-to-End Type Inference
- - Backend to Frontend Type Mapping:
- - Seamless type propagation
- - Catches potential type mismatches during development
-### Code Reliability:
- - Enhances type consistency
- - Minimizes runtime type-related errors
-## Core Capabilities
- - Automatic API function generation
- - Type-safe API interactions
- - Dynamic URL parameter support
- - Minimal configuration required
+- **Backend to Frontend Type Mapping**: Seamless type propagation.
+- **Catches Potential Type Mismatches**: Ensures consistency during development.
 
+### Core Capabilities
+- **Automatic API Function Generation**: Generates type-safe API functions with minimal configuration.
+- **Dynamic URL Parameter Support**: Easily handle dynamic routes like `/users/:id`.
+- **Minimal Configuration Required**: Works out of the box with Express.js and Axios.
 
+---
 
-# AxiosFlow API
+## How AxiosFlow Compares to Other Tools
 
-AxiosFlow API is an TypeScript library, which has the potential to completely change the way we do backend API development. With intelligent routing, type-safe implementations, and automatic schema generation, it takes care of most of the complicated things while you build your robust web APIs.
+| Feature/Tool          | AxiosFlow               | tRPC                   | OpenAPI (Swagger)      | GraphQL Code Generator | Zodios                 | Manual Typing          |
+|------------------------|-------------------------|------------------------|------------------------|------------------------|------------------------|------------------------|
+| **Type Safety**        | Compile-time            | Compile-time           | Runtime                | Compile-time           | Runtime (Zod)          | Manual                 |
+| **Ease of Use**        | Easy (Express.js + Axios)| Moderate (tRPC setup)  | Moderate (YAML/JSON)   | Moderate (GraphQL)     | Moderate (Zod schemas) | Manual                 |
+| **Flexibility**        | High (framework-agnostic)| Low (tRPC-specific)    | High (RESTful APIs)    | Low (GraphQL-only)     | High (Zod integration) | High                   |
+| **Boilerplate Code**   | Minimal                 | Minimal                | Moderate               | Minimal                | Moderate               | High                   |
 
-## Main Benefits
+AxiosFlow is the **simplest and most flexible solution** for adding type safety to RESTful APIs without requiring a new framework or maintaining a separate schema.
 
-- Type-Safe Routing: Compile-time type checking for API endpoints
-- Dynamic Route Generation: Automatically create routes with minimal configuration
-- Intelligent Schema Export: Generate type-safe API schemas for frontend consumption
-- Seamless Express Integration: Works perfectly with Express.js
-- Decorator-Based API Definition: Clean, intuitive API method declarations
+---
 
-## Configuration
+## Quick Start
+
+## Examples
+
+Check out the [`examples`](./examples) folder for complete implementation samples:
+
+- **[Client](./examples/client)**: A React/TypeScript frontend using AxiosFlow.
+- **[Server](./examples/server)**: An Express.js backend with AxiosFlow integration.
+
+## CodeSandbox
+
+Check out the live examples on CodeSandbox to see AxiosFlow in action:
+
+[![Client and Server Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/github/Noble-TS/examples)  
+
 
 ### Backend setup
 
@@ -50,7 +75,7 @@ AxiosFlow API is an TypeScript library, which has the potential to completely ch
 
 #### Install core dependencies
 ```
-npm install express cors dotenv axiosflow-api
+npm install express@4.21.2  cors dotenv axiosflow-api
 ```
 
 #### Install TypeScript and types
@@ -238,24 +263,17 @@ app.listen(PORT, () => {
 import { Request, Response, NextFunction } from 'express';
 import { registerRoute, typeRef } from 'axiosflow-api';
 
-// Logging Middleware
-export const loggingMiddleware = (req: Request, res: Response, next: NextFunction) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+
+//  CSRF middleware
+const csrfProtection: RequestHandler = (req, res, next) => {
+  csrf({ cookie: true });
   next();
 };
 
-// Validation Middleware
-export const validateUserName = (req: Request, res: Response, next: NextFunction) => {
-  const { name } = req.body;
-  
-  if (!name || name.length < 2) {
-    return res.status(400).json({
-      status: 'error',
-      message: 'Name must be at least 2 characters long'
-    });
-  }
-  
-  next();
+// logger middleware
+const logger: RequestHandler = (req, res, next) => {
+    console.log(`${req.method} ${req.path}`);
+    next();
 };
 
 export function registerUserRoutes() {
@@ -266,7 +284,7 @@ export function registerUserRoutes() {
     '/users', 
     null, 
     typeRef<User>('User', { id: 'number', name: 'string' }), 
-    [loggingMiddleware], 
+    [csrfProtection,logger], 
     'getUsers'
   );
   
@@ -277,11 +295,11 @@ export function registerUserRoutes() {
     '/users/:id', 
     null, 
     typeRef<User>('User', { id: 'number', name: 'string' }), 
-    [validateUserName, loggingMiddleware], 
+    [csrfProtection, logger], 
     'getUserById'
   );
   
-
+}
 ```
 ## Client Setup 
 
@@ -400,4 +418,3 @@ return (
 
 };
 ```
-Check the `examples` folder for implementation samples on both the client and server sides
