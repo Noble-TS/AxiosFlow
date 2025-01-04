@@ -272,10 +272,8 @@ import { registerRoute, typeRef } from 'axiosflow-api';
 
 
 //  CSRF middleware
-const csrfProtection: RequestHandler = (req, res, next) => {
-  csrf({ cookie: true });
-  next();
-};
+const csrfProtection: RequestHandler = csrf({ cookie: true });
+  
 
 // logger middleware
 const logger: RequestHandler = (req, res, next) => {
