@@ -47,13 +47,13 @@
     "axiosflow": "./dist/cli/index.js"
   },
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && tsc",
-    "prepublishOnly": "npm run build",
-    "cli": "node --loader ts-node/esm src/cli/index.ts",
-    "generate": "node ./dist/cli/index.js generate",
-    "postinstall": "chmod +x dist/cli/index.js"
-  },
+  "clean": "rm -rf dist",
+  "build": "pnpm clean && tsc",
+  "prepublishOnly": "pnpm build",
+  "cli": "node --loader ts-node/esm src/cli/index.ts",
+  "generate": "node ./dist/cli/index.js generate",
+  "postinstall": "chmod +x dist/cli/index.js"
+},
   "files": [
     "dist"
   ],
@@ -62,8 +62,8 @@
     "axios": "^1.7.9",
     "commander": "^9.2.0",
     "dotenv": "^16.4.7",
-    "reflect-metadata": "^0.2.2",
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
@@ -86,6 +86,9 @@
       "react-app"
     ]
   },
+  "engines": {
+  "node": ">=16.0.0"
+},
   "browserslist": {
     "production": [
       ">0.2%",
