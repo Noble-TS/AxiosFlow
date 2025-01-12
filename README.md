@@ -315,9 +315,16 @@ TypeScript
 Axios
 
 #### Global installation  via npm 
+#### Using NPM 
 ```
 npm install -g axiosflow
 ```
+#### Using PNPM
+
+```
+pnpm add axiosflow 
+```
+
 #### Verify Installation
 ```t
 axiosflow --help 
